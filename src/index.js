@@ -57,6 +57,23 @@ function citySearch(event) {
         document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
     }
 
+    function getCurrentLocation(event){
+        event.preventDefault();
+        navigator.geolocation.getCurrentPosition(searchLocation);
+    }
+
+function searchLocation(position) {
+
+    let apiKey = "85ad33b3f2d949047f19cf1a73113630";
+    let unit = "imperial";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(showTemp);
+}
+
     let form = document.querySelector("form");
     form.addEventListener("submit", citySearch);
+
+    let currentLocationButton = document.querySelector("#current-location");
+    currentLocationButton.addEventListener("click", getCurrentLocation);
+
 
