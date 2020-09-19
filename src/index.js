@@ -60,6 +60,9 @@ function citySearch(event) {
     function getCurrentLocation(event){
         event.preventDefault();
         navigator.geolocation.getCurrentPosition(searchLocation);
+        let currentCity = document.querySelector("#current-city");
+        currentCity.innerHTML = `${searchLocation.value}`;
+
     }
 
 function searchLocation(position) {
