@@ -1,0 +1,65 @@
+
+img{
+    width:75%;
+    margin: 0 auto;
+    display: block;
+}
+
+.container{
+    background: #f4f4f4 .5;
+    font-family: 'Lato', sans-serif;
+    border: 2px solid grey;
+    border-radius: 8px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.search-button{
+    background: #557571;
+    padding: 10px 20px 10px 20px;
+    color: #ffff;
+    border-radius: 20px;
+    box-shadow: none 3px -3px 15px 3px #0000 inset;
+}
+
+.search-button:hover{
+    transition: ease-in-out 200ms;
+    opacity: .8;
+}
+
+.current-button{
+    background: #ea907a;
+    padding: 10px 20px 10px 20px;
+    color: #ffff;
+    border-radius: 20px;
+    box-shadow: none 3px -3px 15px 3px #0000 inset;
+}
+
+.current-button:hover{
+    transition: ease-in-out 200ms;
+    opacity: .8;
+}
+
+.location-search{
+    margin: 30px 0px 30px 0px;
+}
+
+.search.bar{
+    width: 100%;
+}
+
+.small-sun{
+    width: 40%;
+    padding: 10px 0px 10px 0px;
+}
+
+.card{
+    margin: 80px 0px 50px 0px;
+    padding: 30px 10px 30px 10px;
+    text-align: center;
+    background: white;
+}
+
+.card:hover{
+    cursor:pointer;
+}
