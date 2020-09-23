@@ -30,7 +30,7 @@ function today () {
     let hour = now.getHours();
     let minutes = now.getMinutes();
 
-todaysDate.innerHTML = `${day}, ${month} ${date}, ${hour}:${minutes}`;
+todaysDate.innerHTML = `Last updated: ${day}, ${month} ${date}, ${hour}:${minutes}`;
 
 }
 
