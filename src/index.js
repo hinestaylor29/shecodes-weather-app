@@ -55,6 +55,10 @@ function citySearch(event) {
         currentTemp.innerHTML = `${Math.round(temp)}° F`;
 
         document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
+
+        let icon = document.querySelector("#icon");
+        icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+        icon.setAttribute("alt", response.data.weather[0].main);
     }
 
     function getCurrentLocation(event){
