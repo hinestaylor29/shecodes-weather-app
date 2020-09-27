@@ -1,4 +1,8 @@
 
+a:hover{
+    text-decoration: none;
+}
+
 .container{
     background: #f4f4f4 .5;
     font-family: 'Lato', sans-serif;
@@ -61,6 +65,13 @@
     display: block;
     width: 90%;
 }
+
+.unit{
+text-align: left;
+display: block;
+margin: 0 auto;
+}
+
 
 #forecast{
     margin: 5px 0px 50px 0px;

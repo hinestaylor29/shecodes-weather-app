@@ -65,7 +65,7 @@ forecast = response.data.list[index];
                     </p>
                     <img class="forecast-icon" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
                     <p>
-                        ${Math.round(forecast.main.temp_max)}° | ${Math.round(forecast.main.temp_min)}°
+                        ${Math.round(forecast.main.temp_max)}° | ${Math.round(forecast.main.temp_min)}° F
                     </p>
                 </div>
             </div>
@@ -104,8 +104,6 @@ function handleSubmit(event) {
     citySearch(searchLocation.value);
 }
 
-citySearch("New York");
-
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
 
@@ -115,6 +113,10 @@ function getCurrentLocation(event){
         navigator.geolocation.getCurrentPosition(searchLocation);
         let currentCity = document.querySelector("#current-city");
         currentCity.innerHTML = `${searchLocation.value}`;
+
+        if(currentCity.innerHTML = "undefined"){
+            currentCity.innerHTML = "Sorry, cannot display city name";
+        }
     }
 
 function searchLocation(position) {
@@ -127,3 +129,5 @@ function searchLocation(position) {
 
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+citySearch("San Francisco");
