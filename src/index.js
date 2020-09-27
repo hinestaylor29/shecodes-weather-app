@@ -34,7 +34,7 @@ todaysDate.innerHTML = `Last updated: ${day}, ${month} ${date}, ${hour}:${minute
 
 }
 
-today()
+today();
 
 function formatTime(timestamp){
     let date = new Date(timestamp);
@@ -101,7 +101,10 @@ function handleSubmit(event) {
     let currentCity = document.querySelector("#current-city");
     let searchLocation = document.querySelector("#search-location");
     currentCity.innerHTML = `${searchLocation.value}`;
+    citySearch(searchLocation.value);
 }
+
+citySearch("New York");
 
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
