@@ -1,10 +1,4 @@
 
-#icon{
-    width:100%;
-    margin: 0 auto;
-    display: block;
-}
-
 .container{
     background: #f4f4f4 .5;
     font-family: 'Lato', sans-serif;
@@ -56,26 +50,32 @@
     width: 100%;
 }
 
-.small-sun{
-    width: 40%;
-    padding: 10px 0px 10px 0px;
+.open-source{
+    display: block;
+    margin: 0px 0px 50px 0px;
+    text-align: center;
+    padding: 0px 0px 0px 0px;
+}
+
+.forecast-icon{
+    display: block;
+    width: 90%;
 }
 
 #forecast{
-    margin: 80px 0px 50px 0px;
+    margin: 5px 0px 50px 0px;
     padding: 30px 10px 30px 10px;
     text-align: center;
     background: white;
     font-size: 100%;
 }
 
-.card:hover{
-    cursor:pointer;
+#icon{
+    width:100%;
+    margin: 0 auto;
+    display: block;
 }
 
-.open-source{
-    display: block;
-    margin: 0px 0px 50px 0px;
-    text-align: center;
-    padding: 0px 0px 0px 0px;
+#hourly-forecast{
+    margin: 20px 0px 0px 0px;
 }

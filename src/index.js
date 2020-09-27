@@ -63,7 +63,7 @@ forecast = response.data.list[index];
                     <p>
                        ${formatTime(forecast.dt * 1000)}
                     </p>
-                    <img class="small-sun" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
+                    <img class="forecast-icon" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
                     <p>
                         ${Math.round(forecast.main.temp_max)}° | ${Math.round(forecast.main.temp_min)}°
                     </p>
