@@ -116,18 +116,19 @@ function getCurrentLocation(event){
         event.preventDefault();
         navigator.geolocation.getCurrentPosition(searchLocation);
         let currentCity = document.querySelector("#current-city");
-        currentCity.innerHTML = `${searchLocation.value}`;
-
+        currentCity.innerHTML = `${searchLocation.value}`;        
+        
         if(currentCity.innerHTML = "undefined"){
             currentCity.innerHTML = "Sorry, cannot display city name";
         }
     }
 
 function searchLocation(position) {
-
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
     let apiKey = "85ad33b3f2d949047f19cf1a73113630";
     let unit = "imperial";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${unit}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
     axios.get(apiUrl).then(showTemp);
 } 
 
