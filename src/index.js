@@ -65,7 +65,7 @@ forecast = response.data.list[index];
                     </p>
                     <img class="forecast-icon" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
                     <p>
-                        ${Math.round(forecast.main.temp_max)}° | ${Math.round(forecast.main.temp_min)}° F
+                        ${Math.round(forecast.main.temp_max)}° | ${Math.round(forecast.main.temp_min)}° C
                     </p>
                 </div>
             </div>
@@ -77,7 +77,7 @@ forecast = response.data.list[index];
 function showTemp(response) {
         let temp = response.data.main.temp;
         let currentTemp = document.querySelector("#current-temp");
-        currentTemp.innerHTML = `${Math.round(temp)}° F`;
+        currentTemp.innerHTML = `${Math.round(temp)}`;
         
         let currentCity = document.querySelector("#current-city");
         currentCity.innerHTML = response.data.name; 
@@ -95,7 +95,7 @@ function showTemp(response) {
 
 function citySearch(city){
     let apiKey = "85ad33b3f2d949047f19cf1a73113630";
-    let unit = "imperial";
+    let unit = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
     axios.get(apiUrl).then(showTemp);
 
@@ -130,13 +130,39 @@ function searchLocation(position) {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
         let apiKey = "85ad33b3f2d949047f19cf1a73113630";
-        let unit = "imperial";
+        let unit = "metric";
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
         axios.get(apiUrl).then(showTemp);
        
         apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
         axios.get(apiUrl).then(displayForecast);
-} 
+}
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = ((celsiusTemperature) * 9) / (5 + 32);
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = "#current-temp";
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);

@@ -90,3 +90,12 @@ margin: 0 auto;
 .metadata{
     margin-bottom: 0px;
 }
+
+.units.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.units.active:hover {
+  text-decoration: none;
+}
