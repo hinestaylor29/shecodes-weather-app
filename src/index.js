@@ -79,6 +79,8 @@ function showTemp(response) {
         let currentTemp = document.querySelector("#current-temp");
         currentTemp.innerHTML = `${Math.round(temp)}`;
         
+       celsiusTemperature = response.data.main.temp;
+
         let currentCity = document.querySelector("#current-city");
         currentCity.innerHTML = response.data.name; 
         
@@ -144,7 +146,7 @@ function displayFahrenheitTemperature(event) {
 
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = ((celsiusTemperature) * 9) / (5 + 32);
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
